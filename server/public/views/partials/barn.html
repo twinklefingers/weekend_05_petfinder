@@ -2,7 +2,10 @@
     <div class="col-md-6">
         <button ng-click="getRandomPet()">Find Barn Pet</button>
         <h2>{{animal.name.$t}}</h2>
-        <p>{{animal.description.$t}}</p>
         <img ng-src="{{animal.media.photos.photo[2].$t}}" />
+        <p>{{animal.description.$t}}</p>
+
+        <button ng-click="savePet(animal.name.$t, animal.media.photos.photo[2].$t, animal.description.$t)">
+            Favorite Me</button>
     </div>
 </div>

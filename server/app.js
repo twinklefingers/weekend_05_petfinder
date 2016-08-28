@@ -1,6 +1,17 @@
 var express = require("express");
 var app = express();
 var path = require('path');
+var bodyParser = require('body-parser');
+
+//Routes
+var getpet = require('./routes/getpet');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.use('/getpet', getpet);
 
 // Serve back static files
 app.use(express.static(path.join(__dirname, './public')));

@@ -20,8 +20,8 @@ router.post('/', function(req, res) {
             res.sendStatus(500);
         }
 
-        client.query('INSERT INTO favanimals (name, image, description) ' +
-            'VALUES ($1, $2, $3)', [animal.name, animal.image, animal.description],
+        client.query('INSERT INTO favanimals (name, image, description, pet_id) ' +
+            'VALUES ($1, $2, $3, $4)', [animal.name, animal.image, animal.description, animal.pet_id],
             function(err, result) {
                 done();
 
@@ -52,8 +52,9 @@ router.get('/', function(req, res) {
                 if (err) {
                     console.log("select error: ", err);
                     res.sendStatus(500);
+                } else {
+                    res.send(result.rows);
                 }
-                res.send(result.rows);
             });
 
     });
@@ -82,29 +83,33 @@ router.get('/', function(req, res) {
 // //     });
 // // });
 //
-router.delete('/:id', function(req, res) {
-    var animalID = req.params.id;
 
-    pg.connect(connection, function(err, client, done) {
-        if (err) {
-            console.log(err);
-            res.sendStatus(500);
-        }
-
-        client.query("DELETE FROM tasks WHERE id = $1", [animalID],
-            function(err, result) {
-                done();
-
-                if (err) {
-                    console.log("delete error: ", err);
-                    res.sendStatus(500);
-                }
-
-                res.sendStatus(202);
-            });
-    });
-
-});
+// req.params.id is undefined!! vvv
+//
+// router.delete('/:id', function(req, res) {
+//     var animalID = req.params.id;
+//     console.log("req.params: ", req.params);
+//
+//     pg.connect(connection, function(err, client, done) {
+//         if (err) {
+//             console.log(err);
+//             res.sendStatus(500);
+//         }
+//
+//         client.query("DELETE FROM favanimals WHERE id = $1", [animalID],
+//             function(err, result) {
+//                 done();
+//
+//                 if (err) {
+//                     console.log("delete error: ", err);
+//                     res.sendStatus(500);
+//                 } else {
+//                     res.sendStatus(202);
+//                 }
+//             });
+//     });
+//
+// });
 
 
 

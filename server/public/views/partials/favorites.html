@@ -1,12 +1,13 @@
 <!-- <div class="container" ng-controller="favController"> -->
+<div class="totalFavorites">Total Favorites: {{favNumber}}</div>
 <div ng-repeat="pet in animals">
-    <div class="totalFavorites">Total Favorites: {{favNumber}}</div>
+
     <h2>{{pet.name}}</h2>
     <img ng-src="{{pet.image}}" />
     <p>{{pet.description}}</p>
 
     <!-- router.delete incomplete -->
-    <!-- <button ng-click="deleteFav(favanimals.id)">Delete Favorite</button> -->
+    <button ng-click="deleteFav(pet.id)">Delete Favorite</button>
 
 </div>
 <!-- </div> -->

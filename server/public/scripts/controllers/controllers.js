@@ -24,10 +24,11 @@ myApp.controller('barnController', ['$scope', '$http', function($scope, $http) {
     }
 
 
-    $scope.savePet = function(name, image, description) {
+    $scope.savePet = function(name, image, description, id) {
         console.log("name: ", name);
         console.log("image: ", image);
         console.log("description: ", description);
+        console.log("id: ", id);
 
         description = subString(description);
 
@@ -35,7 +36,8 @@ myApp.controller('barnController', ['$scope', '$http', function($scope, $http) {
                 content: {
                     name: name,
                     image: image,
-                    description: description
+                    description: description,
+                    pet_id: id
                 }
             })
             .then(function(response) {

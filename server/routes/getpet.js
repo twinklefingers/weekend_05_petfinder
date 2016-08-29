@@ -86,30 +86,30 @@ router.get('/', function(req, res) {
 
 // req.params.id is undefined!! vvv
 //
-// router.delete('/:id', function(req, res) {
-//     var animalID = req.params.id;
-//     console.log("req.params: ", req.params);
-//
-//     pg.connect(connection, function(err, client, done) {
-//         if (err) {
-//             console.log(err);
-//             res.sendStatus(500);
-//         }
-//
-//         client.query("DELETE FROM favanimals WHERE id = $1", [animalID],
-//             function(err, result) {
-//                 done();
-//
-//                 if (err) {
-//                     console.log("delete error: ", err);
-//                     res.sendStatus(500);
-//                 } else {
-//                     res.sendStatus(202);
-//                 }
-//             });
-//     });
-//
-// });
+router.delete('/:id', function(req, res) {
+    var animalID = req.params.id;
+    console.log("req.params: ", req.params);
+
+    pg.connect(connection, function(err, client, done) {
+        if (err) {
+            console.log(err);
+            res.sendStatus(500);
+        }
+
+        client.query("DELETE FROM favanimals WHERE id = $1", [animalID],
+            function(err, result) {
+                done();
+
+                if (err) {
+                    console.log("delete error: ", err);
+                    res.sendStatus(500);
+                } else {
+                    res.sendStatus(202);
+                }
+            });
+    });
+
+});
 
 
 

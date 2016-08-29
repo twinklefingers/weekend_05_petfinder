@@ -19,17 +19,17 @@ myApp.controller('favController', ['$scope', '$http', function($scope, $http) {
 
     // delete this task from the server
     // router.delete incomplete...
-    // $scope.deleteFav = function(id) {
-    //     if (confirm("Delete this favorited animal??!")) {
-    //         console.log('delete animal id ', id);
-    //         $http.delete('/getpet/' + id).then(function(response) {
-    //             if (response.status == 202) {
-    //                 getFavs();
-    //             } else {
-    //                 console.log('error deleting fav animal');
-    //             }
-    //         });
-    //     };
-    // }
+    $scope.deleteFav = function(id) {
+        if (confirm("Delete this favorited animal??!")) {
+            console.log('delete animal id ', id);
+            $http.delete('/getpet/' + id).then(function(response) {
+                if (response.status == 202) {
+                    $scope.getFavs();
+                } else {
+                    console.log('error deleting fav animal');
+                }
+            });
+        };
+    }
 
 }]); // end controlller

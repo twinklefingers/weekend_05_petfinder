@@ -16,6 +16,10 @@ myApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: "/views/partials/smallfurry.html",
         controller: "smallFurryController"
     }).
+    when('/favorites', {
+        templateUrl: "/views/partials/favorites.html",
+        controller: "favController"
+    }).
     otherwise({
         redirectTo: "/home"
     });

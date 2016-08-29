@@ -1,5 +1,5 @@
 myApp.controller('barnController', ['$scope', '$http', function($scope, $http) {
-    console.log("barn animals");
+    console.log("barnController is a go");
     $scope.animalContent = "";
 
     var key = '8b98a506916106507ad19e43e22763e4';
@@ -44,20 +44,16 @@ myApp.controller('barnController', ['$scope', '$http', function($scope, $http) {
                     $scope.animalContent = "";
                     // getTasks();
                 } else {
-                    console.log("error posting new task");
+                    console.log("error posting new fav animal");
                 }
             });
-
-
     }
-
-
 
 }]); // end barn controlller
 
 
 myApp.controller('pigController', ['$scope', '$http', function($scope, $http) {
-    console.log("pigs r cuties");
+    console.log("pigController is a go");
 
     var key = '8b98a506916106507ad19e43e22763e4';
     var baseURL = 'http://api.petfinder.com/';
@@ -82,7 +78,7 @@ myApp.controller('pigController', ['$scope', '$http', function($scope, $http) {
 }]); // end pig controller
 
 myApp.controller('smallFurryController', ['$scope', '$http', function($scope, $http) {
-    console.log("Small and Furry");
+    console.log("smallfurryController is a go");
 
     var key = '8b98a506916106507ad19e43e22763e4';
     var baseURL = 'http://api.petfinder.com/';
@@ -112,3 +108,34 @@ function subString(str) {
     }
     return str;
 }
+
+
+// Curious why I can't abstract this function...
+// Perhaps I could make a savePet.controller and put the button in the footer
+//
+// function savePet(name, image, description) {
+//     console.log("name: ", name);
+//     console.log("image: ", image);
+//     console.log("description: ", description);
+//
+//     description = subString(description);
+//
+//     $http.post('/getpet', {
+//             content: {
+//                 name: name,
+//                 image: image,
+//                 description: description
+//             }
+//         })
+//         .then(function(response) {
+//             console.log("post response: ", response);
+//             if (response.status == 201) {
+//                 $scope.animalContent = "";
+//                 // getTasks();
+//             } else {
+//                 console.log("error posting new task");
+//             }
+//         });
+//
+//
+// }

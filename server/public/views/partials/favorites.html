@@ -1,0 +1,12 @@
+<!-- <div class="container" ng-controller="favController"> -->
+
+<div ng-repeat="animal in favanimals">
+    <p>hellooo</p>
+    <h2>{{animal.name.$t}}</h2>
+    <img ng-src="{{animal.media.photos.photo[2].$t}}" />
+    <p>{{animal.description.$t}}</p>
+
+    <button ng-click="deleteFav(favanimals.id)">Delete Favorite</button>
+
+</div>
+<!-- </div> -->
